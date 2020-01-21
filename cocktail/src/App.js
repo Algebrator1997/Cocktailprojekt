@@ -1,16 +1,16 @@
 import React from 'react';
-import MainPage from './containers/MainPage.js'
-import Instruction from './components/instruction.js'
-import Match from './components/match.js';
+
+import Navigation from './components/navigation.js';
+import {BrowserRouter} from 'react-router-dom';
 
 function App(){
   
   
     return (
       <div>
-        <MainPage />
-        <Instruction/>
-        <Match/>
+        
+        <BrowserRouter><Navigation/></BrowserRouter>
+        
       
       
 
