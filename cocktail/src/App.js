@@ -1,25 +1,20 @@
 import React from 'react';
-import MainPage from './containers/MainPage.js';
-import Bestand from './components/selection/Bestand.js';
-import selecting from '.'
+import MainPage from './containers/MainPage.js'
+import Instruction from './components/instruction.js'
+import Match from './components/match.js';
 
-class App extends React.Component {
-  constructor(props){
-    super(props)
-    
-      
-    }
-    
-    }
-  }
-  render(){
+function App(){
+  
+  
     return (
-    <div>
-      <MainPage />
-      Hello
-    </div>
+      <div>
+        <MainPage />
+        <Instruction/>
+        <Match/>
+      
+      
+
+      </div>
   );
 }
-}
-
 export default App;
