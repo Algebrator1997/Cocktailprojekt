@@ -4,7 +4,10 @@ class instruction extends React.Component{
     render(){
         return(
              <div>
-                <h1> hello </h1>
+                <h1> Rezepte </h1>
+                <p> Vodka e</p>
+                <p> - Vodka einschenken</p>
+                <p> - Redbull einschenken</p>
                 
             </div>
         );
