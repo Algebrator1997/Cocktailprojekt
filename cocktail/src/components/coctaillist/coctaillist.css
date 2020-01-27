@@ -1,0 +1,20 @@
+#coctaillisttable {
+    margin: auto;
+    text-align: left;
+}
+
+#tabledatacoctaillist {
+    color: red;
+    margin: auto;
+    text-align: left;
+}
+
+#absatz {
+    line-height: 10px;
+}
+
+#description {
+    text-align: auto;
+    color: grey;
+    font-size: small;
+}

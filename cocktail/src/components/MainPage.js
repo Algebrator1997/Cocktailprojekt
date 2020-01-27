@@ -1,7 +1,8 @@
 import React from 'react';
-import Intersection from './selection/intersection.js'
-import Bestand from './selection/Bestand.js'
-import Shopping from './selection/shopping.js'
+import Intersection from './chooseingredients/intersection.js.js'
+import Bestand from './chooseingredients/Bestand.js.js'
+import Shopping from './chooseingredients/shopping.js.js'
+import Test from './chooseingredients/test.js.js'
 
 
 class App extends React.Component {
@@ -14,7 +15,7 @@ class App extends React.Component {
     }
   
     addItemToState = (item) => {
-      this.state.allItems.push(item)
+      this.state.allItems.add(item)
       this.setState( { allItems: this.state.allItems } )
     }
   
@@ -39,8 +40,10 @@ class App extends React.Component {
             /> 
             <br></br> 
         <Bestand boughtItems = {this.state.boughtItems}/>
+          <br></br> 
         <Shopping/>
-
+        <Test boughtItems = {this.state.boughtItems}/>
+        
           
         </div>
       );

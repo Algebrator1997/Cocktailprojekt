@@ -1,23 +1,40 @@
 import React from 'react';
 
 
+
+
+
 class Match extends React.Component{
     constructor(props){
         super(props)
-        this.state ={
-            Items: "Vodka e"
-          
+        const Vodka = ["Vodka", "Red Bull"]
+        const test =  ["Vodka", "Red Bull"]
+        this.state={
+            ismatched: Vodka.length === test.length && Vodka.sort().every(function(value, index) { return value === test.sort()[index]})
 
-        }
+        }  
+        
+       
+    
     }
     render(){
-        return(
-             <div>
-                <h1> Cocktails: </h1>
-                <p> {this.state.Items}</p>
+        
+        if(this.state.ismatched){
+            return(
+            <div> 
                 
-            </div>
-        );
+                <h1>Dein Getränk ist:</h1> 
+                <h3>Vodka e</h3>
+                </div>
+            )
+        }
+        else{
+            return(
+            <div> Du hast nicht genug Zutaten, ohhhh </div>
+            )
+        }
+    
     }
 }
 export default Match;
+
