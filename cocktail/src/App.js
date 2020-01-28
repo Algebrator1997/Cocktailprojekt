@@ -37,6 +37,8 @@ class App extends React.Component {
 
       <BrowserRouter>
         <div id = "app"> 
+        <h1> Willkommen in Jannik's Cocktailbar</h1>
+       
           {navigation(this.state)}
         </div>
       </BrowserRouter>

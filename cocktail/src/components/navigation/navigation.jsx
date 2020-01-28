@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Link, Route} from 'react-router-dom';
-
+import Button from '@material-ui/core/Button';
 import FrontPage from "../../containers/FrontPage/FrontPage.jsx";
 import Coctailoverview from "../../containers/CocktailOverview/CocktailOverview.jsx";
 import Recipeview from "../../containers/RecipeView/RecipeView.jsx";
@@ -11,6 +11,8 @@ import './navigation.css';
 export function navigation(probs) {
 
     // load all coctails
+    
+    
     let coctails = {coctails : probs.coctails}
     
     // load all ingredients and save them to variable
@@ -21,33 +23,39 @@ export function navigation(probs) {
     let californication = {coctail: coctails.coctails[0]}
     let sotb = {coctail: coctails.coctails[2]}
 
+    // load all ingredients and save them to variable
+    //let ingredients = {ingredients: probs.ingredients} replaced - old code
+
+    // save each coctail to own variable
+
+
 
     return (
         <div id = "navigationArea">
 
             <nav>
                 <Link to = "/zutatenwahl">
-                    <button id = "chooseingredients" variant = "contained" color = "default" size = "large" >
+                    <Button id = "chooseingredients" variant = "contained" color = "default" size = "large" >
                         Zutatenauswahl
-                    </button>
+                    </Button>
                 </Link>
 
                 <br />
                 <br />
 
                 <Link to = "/coctailübersicht">
-                    <button id = "CoctailOverview" variant = "contained" color = "default" size = "large">
+                    <Button id = "CoctailOverview" variant = "contained" color = "default" size = "large">
                         Coctailübersicht
-                    </button>
+                    </Button>
                 </Link>
 
                 <br />
                 <br />
 
                 <Link to = "/coctailname">
-                    <button id = "RecipeView" variant = "contained" color = "default" size = "large">
+                    <Button id = "RecipeView" variant = "contained" color = "default" size = "large">
                         Coctail
-                    </button>
+                    </Button>
                 </Link>
 
             </nav>
@@ -58,12 +66,11 @@ export function navigation(probs) {
 
                 <Route path = "/coctailübersicht" render = {() => <Coctailoverview {...probs} />} /> {/*replaced ...coctails by ...props */}
                 
-                <Route path = "/coctailname" render = {() => <Recipeview {...mojito} />} />
-
+                <Route path = "/coctailname" render = {() => <Recipeview {...probs} />} />
                 <Route path = "/Mojito" render = {() => <Recipeview {...mojito} />}  />
 
                 <Route path = "/Sex_on_the_Beach"  render = {() => <Recipeview {...sotb} />} />
-                
+
                 <Route path = "/Californication" render = {() => <Recipeview {...californication} />} />
 
             </Switch>
