@@ -1,15 +1,14 @@
 import React from "react";
 import { Checkbox } from '@material-ui/core';
 
-// import css-Files
 
 
-export function coctail(probs) {
+export function cocktail(props) {
 
     let zutaten = []
     let rezept = []
     console.log(probs)
-    probs.Zutaten.map((element) => 
+    props.Zutaten.map((element) => 
         zutaten.push(
             <tr>
                 <td>
@@ -19,7 +18,7 @@ export function coctail(probs) {
         )
     )
 
-    probs.Rezept.map((element) => 
+    props.Rezept.map((element) => 
         rezept.push(
             <div>
                 <tr>
@@ -46,13 +45,13 @@ export function coctail(probs) {
     )
 
     return(
-        <div id = "coctailrecipe">
-            <table id = "tablecoctail">
+        <div id = "cocktailrecipe">
+            <table id = "tablecocktail">
                 <tbody>
                     <tr>
                         <td>
                             <h2>
-                                {probs.Coctail}
+                                {props.Cocktail}
                             </h2>
                         </td>
                     </tr>
