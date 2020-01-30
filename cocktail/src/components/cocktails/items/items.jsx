@@ -3,11 +3,12 @@ import { Checkbox } from '@material-ui/core';
 
 
 
-export function cocktail(props) {
+
+export function items(props) {
 
     let zutaten = []
     let rezept = []
-    console.log(probs)
+    console.log(props)
     props.Zutaten.map((element) => 
         zutaten.push(
             <tr>
@@ -51,7 +52,7 @@ export function cocktail(props) {
                     <tr>
                         <td>
                             <h2>
-                                {props.Cocktail}
+                                {props.Coctail}
                             </h2>
                         </td>
                     </tr>

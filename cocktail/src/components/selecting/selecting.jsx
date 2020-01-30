@@ -2,15 +2,15 @@ import React from 'react';
 import { Checkbox } from '@material-ui/core';
 
 
-export function ChooseIngredients(props, getActiveIngretients) {
+export function Selecting(props, getCurrentItems) {
 
     const handleChange = (event) => {
         update_ingredient_list(event);
-        returnActiveIngredients()
+        returnCurrentItems()
     };
 
-    const returnActiveIngredients = () => {
-        getActiveIngretients(props)
+    const returnCurrentItems = () => {
+        getCurrentItems(props)
     }
     
     const update_ingredient_list = (event) => {
@@ -18,9 +18,9 @@ export function ChooseIngredients(props, getActiveIngretients) {
 
         if (index === -1) { 
             console.log("Unbekannte Zutat")
-            probs.push( {Zutat: event.target.id, Ausgewählt: event.target.checked}) } 
+            props.push( {Zutat: event.target.id, Ausgewählt: event.target.checked}) } 
         else {
-            let status = probs[index].Ausgewählt
+            let status = props[index].Ausgewählt
             let rstatus = true
             if (status === true) {rstatus = false} else {rstatus = true}
             props[index].Ausgewählt = rstatus}
