@@ -1,21 +1,23 @@
-import React from 'react'
-import {items} from "../../components/cocktails/items/items.jsx"
+import React from 'react';
+import {items} from "../../components/cocktails/items/items.jsx";
+
 
 
 class Recipes extends React.Component{
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state = props
-        console.log("Rezepte", this.state)
+        this.state =  props
+        console.log("recipes", this.state)
     }
+    
+    render () {
 
-    render(){
-        return(
-            <div id="Rezepte">
-                {items(this.state.items)}
+        return (
+            <div id = "recipes">
+                { items(this.state.cocktail) }
             </div>
         );
     }
-} 
+}
 
-export default Recipes
+export default Recipes;

@@ -2,8 +2,6 @@ import React from "react";
 import { Checkbox } from '@material-ui/core';
 
 
-
-
 export function items(props) {
 
     let zutaten = []
@@ -34,13 +32,6 @@ export function items(props) {
                             />
                     </td>
                 </tr>
-                <hr 
-                        style= {{
-                        color: "grey",
-                        backgroundColor: "grey",
-                        height: 1
-                        }}> 
-                    </hr>
             </div>
         )
     )
@@ -52,7 +43,7 @@ export function items(props) {
                     <tr>
                         <td>
                             <h2>
-                                {props.Coctail}
+                                {props.Cocktail}
                             </h2>
                         </td>
                     </tr>
@@ -61,13 +52,6 @@ export function items(props) {
                             {zutaten}
                         </td>
                     </tr>
-                    <hr 
-                        style= {{
-                        color: "black",
-                        backgroundColor: "black",
-                        height: 2,
-                        }}> 
-                    </hr>
                     <tr>
                         <td>
                             {rezept} 

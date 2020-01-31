@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { navigation } from "./components/navigation/navigation.jsx";
 
+// import css-Files
 import './App.css';
 
 class App extends React.Component {
@@ -34,9 +34,8 @@ class App extends React.Component {
     return (
 
       <BrowserRouter>
-        <div id = "app"> 
         <h1> Willkommen in Jannik's Cocktailbar</h1>
-       
+        <div id = "app"> 
           {navigation(this.state)}
         </div>
       </BrowserRouter>
