@@ -2,84 +2,84 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import { Checkbox } from '@material-ui/core';
 import { Selecting } from '../../components/selecting/selecting.jsx';
-import Matching from '../Matching/Matching.jsx';
-//import {Link} from 'react-router-dom';
+import Matchintersection from '../Matchintersection/Matchintersection.jsx';
 
+import "./MainPage.css"
 
-class FrontPage extends React.Component{
+//Container für Selectinf und Matchintersection & Matchingrate
+
+class MainPage extends React.Component{
     constructor(props) {
         super(props)
         this.state =  {
-            ingredients: props.ingredients, 
-            loadCocktailOverview: false, 
+            items: props.items, 
+            loadCocktails: false, 
             cocktails: props.cocktails, 
             considerall: false,
-            } // if backup --> here this.state = probs
-        this.activedata = 0 // actual problem with rerender: cant go back!
-        this.backupcocktails = {
+            } 
+        this.activedata = 0 
+        this.backups = {
             cocktails : props.cocktails, 
-            shoppingtext: "Zeige alle Coctails. Für einige wirst du einkaufen müssen!",
-            showText: true
+            shopping: "Hier findest du alle Cocktails, es kann sein, dass du für manche einkaufen gehen musst",
+            text: true
             }
     }
 
-    cocktailstoload = () => {
-        //in this function there should be evaluated wich coctails Coctailoverview should load
-        // save coctail with his ingredients | form: [coctailname, [zutat1, zutat2, ...]]
-        let cocktailingredients = []
+    cocktailstoactive = () => {
+        let cocktailitems = []
         let tmpvar = 0
         this.state.cocktails.forEach((element) => (
             tmpvar = [element.Cocktail, element.Zutaten],
-            cocktailingredients.push(tmpvar)
+            cocktailitems.push(tmpvar)
         ));
 
-        // save all checked ingredients to list
-        let activeingredients = []
-        this.state.ingredients.forEach((element) => (
+        //speichert alle angeklickten Zutaten
+        let actives = []
+        this.state.items.forEach((element) => (
                 element.Ausgewählt ?
-                activeingredients.push(element.Zutat)
+                actives.push(element.Zutat)
             :
             null
         ));
 
-        // match ingredients with coctails
-        let checker = (activeingredients, tmpelement) => (tmpelement.every(v => activeingredients.includes(v)))
+       
+        let checking = (actives, tmpelement) => (tmpelement.every(v => actives.includes(v)))
         let tmpelement = 0
         let tmpvalue = 0
         let possiblecocktails = []
-        cocktailingredients.forEach((element) => (
+        cocktailitems.forEach((element) => (
             tmpelement = element[1],
-            tmpvalue = checker(activeingredients, tmpelement),
+            tmpvalue = checking(actives, tmpelement),
 
-            // if true save name of coctail
+           
             (tmpvalue ? possiblecocktails.push(element[0]) : null)
         ));
 
-        // save percentage of ingredients for each coctail
-        let perc_per_cocktail = []
-        let tmp_num = 0
-        let temp_per = []
+        
+        let percent_cocktail = []
+        let tmp_number = 0
+        let temp_percent = []
         let bool = false
         let len = 0
         let percentage = 0
 
-        cocktailingredients.forEach((e) => (
-            temp_per = e[1],
-            tmp_num = 0,
+        cocktailitems.forEach((e) => (
+            temp_percent = e[1],
+            tmp_number = 0,
             len = e[1].length,
-            temp_per.forEach((e2) => (
-                bool = activeingredients.includes(e2),
-                bool ? tmp_num +=1 : null
+            temp_percent.forEach((e2) => (
+                bool = actives.includes(e2),
+                bool ? tmp_number +=1 : null
             )),
-            percentage = tmp_num / len,
-            {/*(percentage > 1) ? percentage = 1 : null,*/},
-            perc_per_cocktail.push([e[0], percentage])
+            percentage = tmp_number / len *100,
+            
+            percent_cocktail.push([e[0], percentage])
         ))
-        console.log("percentage", perc_per_cocktail)
-        this.backupcocktails.CocktailPercent = perc_per_cocktail
-        console.log("backupcoctail", this.backupcocktails)
+        console.log("percentage", percent_cocktail)
+        this.backups.CocktailPercent = percent_cocktail
+        console.log("backupcoctail", this.backups)
         
-        // load all elements of possible coctails
+        
         let allcocktails = []
 
         let add = 0
@@ -89,72 +89,67 @@ class FrontPage extends React.Component{
                 ( element === element2.Cocktail ? allcocktails.push(element2) : null )
             ))
         ))
-        // save possible coctail with their attributes to state
+        
         this.setState({cocktails : allcocktails})
     }
     
     openCocktails = () => {
-        this.cocktailstoload() // update state variabel from all coctails to only selected coctails
+        this.cocktailstoactive() 
         
-        this.setState({loadCocktailOverview:true})
+        this.setState({loadCocktails:true})
     }
 
-    missinging = () => {
+    missingingItems = () => {
         this.actualstatus = false
         this.actualstatus = this.state.considerall
         this.actualstatus ? this.actualstatus = false : this.actualstatus = true
         this.setState({considerall: this.actualstatus})
     }
     
-    getActiveIngretients = (data) => {
-        //this.setState({activeIngretients: data})
+    getActives = (data) => {
+        
         this.activedata = data
-        this.setState({ingredients: this.activedata})
+        this.setState({items: this.activedata})
     }
 
     render () {
 
         return (
             <div> 
-                {this.state.loadCocktailOverview ?
+                {this.state.loadCocktails ?
                     this.state.considerall ? 
-                        < Matching {...this.backupcocktails}/>
+                        < Matchintersection {...this.backups}/>
                     :
-                        < Matching {...this.state}/>
+                        < Matchintersection {...this.state}/>
                 :
-                <div id = "FrontPagechooseingredients" >
+                <div id = "MainPageSelecting" >
     
-                    <h2 id = "FrontPageHead">
-                        Welche Zutaten sind da?
+                    <h2 id = "Head">
+                        Welche Zutaten hast du?
                     </h2>
+                    <br></br>
                     
-                    {Selecting(this.state.ingredients, this.getActiveIngretients)}
+                    {Selecting(this.state.items, this.getActives)}
     
-                    <hr // Adapt in css
+                    <hr 
                         style= {{
                         color: "black",
-                        backgroundColor: "black",
-                        height: 1/*,
-                        width: 400*/
                         }}> 
                     </hr>
     
-                    <p id = "fehlendezutaten">
-                        Fehlende Zutaten miteinbeziehen?
-                        <Checkbox onClick = {this.missinging} value="uncontrolled" inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} />
+                    <p id = "Shopping">
+                        Möchtest du zusätzlich einkaufen gehen?
+                        <Checkbox onClick = {this.missingingItems} value="uncontrolled" inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} />
                     </p>
     
-                    <hr // Adapt in css
+                    <hr 
                         style= {{
                         color: "black",
-                        backgroundColor: "black",
-                        height: 1/*,
-                        width: 400*/
                         }}> 
                     </hr>
-                    
-                    <Button onClick = {this.openCocktails}  >
-                        Suche passende Cocktails!
+                    <br></br>
+                    <Button variant ="outlined" color ="secondary" onClick = {this.openCocktails}  >
+                        Cocktail suchen
                     </Button>
     
                 </div>
@@ -165,4 +160,4 @@ class FrontPage extends React.Component{
     }
 }
 
-export default FrontPage;
+export default MainPage;

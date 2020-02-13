@@ -1,8 +1,11 @@
 import React from "react";
 import { Checkbox } from '@material-ui/core';
 
+import "./instructions.css"
 
-export function items(props) {
+// Checkboxen an die Rezeptschritte anbringen
+
+export function instructions(props) {
 
     let zutaten = []
     let rezept = []
@@ -29,6 +32,7 @@ export function items(props) {
                             value = "uncontrolled" 
                             inputProps = {{ 'aria-label': 'uncontrolled-checkbox' }} 
                             id = {element} 
+                            color = "primary"
                             />
                     </td>
                 </tr>
@@ -37,7 +41,7 @@ export function items(props) {
     )
 
     return(
-        <div id = "cocktailrecipe">
+        <div id = "recipe">
             <table id = "tablecocktail">
                 <tbody>
                     <tr>

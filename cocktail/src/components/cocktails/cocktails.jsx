@@ -2,12 +2,14 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 
+import "./cocktails.css";
 
+// Bild an jeden Cocktail hinzufügen
 
 export function cocktails(props) {
 
     let content = [];
-    console.log("probscocktaillist", props);
+    console.log("allcocktails", props);
 
     let img = ""
 
@@ -21,18 +23,18 @@ export function cocktails(props) {
                     <Link to = {element.Cocktail}>
                         <Button>
                             <td>
-                                <img src = {img} width = "200" length = "200" />
+                                <img src = {img} width = "150" length = "150" />
                             </td>
                             <table>
                                 <tr>
-                                    <td className = "tabledatacoctaillist">
+                                    <td className = "tableallcocktails">
                                         <h3>
                                             {element.Cocktail}
                                         </h3>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td id = "description">
+                                    <td id = "information">
                                         {element.Beschreibung}
                                     </td>
                                 </tr>
@@ -40,14 +42,14 @@ export function cocktails(props) {
                         </Button>
                     </Link>
                 </tr>
-            <br id = "absatz"/>
+            <br/>
             </div>
         )
     )
     )
 
     return (
-        <div id = "cocktaillisttable">
+        <div id = "cocktailtable">
             <table>
                 <tbody>
                     {content}

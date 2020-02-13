@@ -1,7 +1,9 @@
 import React from 'react';
-import {items} from "../../components/cocktails/items/items.jsx";
+import {instructions} from "../../components/instructions/instructions.jsx";
 
+import "./Recipes.css"
 
+// Container für instructions.jsx
 
 class Recipes extends React.Component{
     constructor(props) {
@@ -14,7 +16,7 @@ class Recipes extends React.Component{
 
         return (
             <div id = "recipes">
-                { items(this.state.cocktail) }
+                { instructions(this.state.cocktail) }
             </div>
         );
     }
