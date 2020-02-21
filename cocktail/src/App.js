@@ -6,6 +6,8 @@ import { navigation } from "./components/navigation/navigation.jsx";
 
 import './App.css';
 
+//Datenbasis (Cocktails und Zutaten)
+
 class App extends React.Component {
   state = {
     cocktails: 
@@ -50,13 +52,6 @@ class App extends React.Component {
         <div id = "app"> 
           {navigation(this.state)}
         </div>
-        <h5 id= "Impressum"> 
-          Impressum:         
-          <br></br>
-          Jannik Fischer
-          <br></br>
-          Nr. 7296816
-        </h5>
       </BrowserRouter>
       
 

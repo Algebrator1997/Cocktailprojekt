@@ -3,7 +3,7 @@ import {instructions} from "../../components/instructions/instructions.jsx";
 
 import "./Recipes.css"
 
-// Container für instructions.jsx
+// Container für instructions.jsx 
 
 class Recipes extends React.Component{
     constructor(props) {

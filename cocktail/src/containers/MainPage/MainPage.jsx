@@ -6,7 +6,7 @@ import Matchintersection from '../Matchintersection/Matchintersection.jsx';
 
 import "./MainPage.css"
 
-//Container für Selectinf und Matchintersection & Matchingrate
+//Matching der Cocktails
 
 class MainPage extends React.Component{
     constructor(props) {
@@ -63,6 +63,9 @@ class MainPage extends React.Component{
         let len = 0
         let percentage = 0
 
+
+        //prozentuale Matchingrate erstellen
+        
         cocktailitems.forEach((e) => (
             temp_percent = e[1],
             tmp_number = 0,

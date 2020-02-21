@@ -5,12 +5,13 @@ import { Switch, Link, Route} from 'react-router-dom';
 import MainPage from "../../containers/MainPage/MainPage.jsx";
 import Matchintersection from "../../containers/Matchintersection/Matchintersection.jsx";
 import Recipes from "../../containers/Recipes/Recipes.jsx";
+import Impressum from "../../containers/Impressum/Impressum.jsx";
 
 
 import "./navigation.css"
 
 
-// Navigation zwischen den einzelnen Views
+// Navigation zwischen den einzelnen Views über Router
 
 export function navigation(props) {
 
@@ -48,6 +49,12 @@ export function navigation(props) {
                     </Button>
                 </Link>
 
+                <Link to = "/Impressum">
+                    <Button variant="outlined" color="primary">
+                        Impressum
+                    </Button>
+                </Link>
+
             </nav>
 
             <Switch>
@@ -69,6 +76,8 @@ export function navigation(props) {
                 <Route path = "/Vodka_E" render = {() => <Recipes {...Vodkae} />} />
 
                 <Route path = "/Pina_Colada" render = {() => <Recipes {...pinacolada} />} />
+
+                <Route path = "/Impressum" render = {() => <Impressum {...props} />} />
 
             </Switch>
 

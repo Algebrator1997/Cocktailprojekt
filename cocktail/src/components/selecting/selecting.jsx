@@ -36,7 +36,8 @@ export function Selecting(props, getActives) {
     }
 
     
-
+    //Checkboxen an die Elemente anhängen
+    
     let content = []
     props.map((element) => 
         content.push(

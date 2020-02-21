@@ -3,7 +3,7 @@ import {cocktails} from "../../components/cocktails/cocktails.jsx"
 
 import "./Matchintersection"
 
-//Matchingfunktion
+//View für die Matchings (mit und ohne einkaufen), Schnittstelle zwischen ausgewählten Elementen und den Cocktails
 
 class Matchintersection extends React.Component{
     constructor(props) {
