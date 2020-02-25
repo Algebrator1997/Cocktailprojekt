@@ -11,9 +11,7 @@ function App(){
     return (
       <div>
         
-        <MainPage/>
-        <Match/>
-  
+       Hello world
         
       
       
