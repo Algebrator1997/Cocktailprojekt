@@ -24,7 +24,7 @@ export function navigation(props) {
     let martini = {cocktail: cocktails.cocktails[2]}
     let caipirinha = {cocktail: cocktails.cocktails[3]}
     let Vodkae = {cocktail: cocktails.cocktails[4]}
-    let pinacolada = {cocktail: cocktails.cocktails[4]}
+    let pinacolada = {cocktail: cocktails.cocktails[5]}
 
     return (
         <div id = "navigationArea">
